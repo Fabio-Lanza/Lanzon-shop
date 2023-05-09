@@ -22,20 +22,20 @@ function Cart() {
     handlePrice();
   });
 
-  const handleChange = (item, num) => {
-    let initial = -1;
-    cart.forEach((data, index) => {
-      if (data.id === item.id) {
-        initial = index;
-      }
-    });
-    const tempArray = amount;
-    amount = amount += num;
-    if (amount === 0) {
-      amount = 1;
-    }
-    setCart([...tempArray]);
-  };
+  // const handleChange = (item, num) => {
+  //   let initial = -1;
+  //   cart.forEach((data, index) => {
+  //     if (data.id === item.id) {
+  //       initial = index;
+  //     }
+  //   });
+  //   const tempArray = amount;
+  //   amount = amount += num;
+  //   if (amount === 0) {
+  //     amount = 1;
+  //   }
+  //   setCart([...tempArray]);
+  // };
 
   return (
     <>
@@ -78,7 +78,7 @@ function Cart() {
           </div>
         )}
 
-        
+
       </section>
     </>
   );

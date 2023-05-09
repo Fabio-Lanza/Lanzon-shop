@@ -51,7 +51,12 @@
   font-weight: 700;
   padding: 10px 20px;
   border: none;
-  width: 158px;
+  width: 168px;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.product-details button:hover {
+  background-color: var(--hover-color);
   cursor: pointer;
 }

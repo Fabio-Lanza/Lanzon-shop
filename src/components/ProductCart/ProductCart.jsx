@@ -1,28 +1,41 @@
 import "./ProductCart.css";
-import { Link} from 'react-router-dom'
-import {AiFillStar} from 'react-icons/ai'
-
+import { Link } from "react-router-dom";
+import { AiFillStar } from "react-icons/ai";
+import { useContext, useState } from "react";
+import { ShopContextCart } from "./../../context/ShopContext";
 
 function ProductCart({ product }) {
   const { id, title, category, price, image } = product;
+  const { addToCart, cart, handleRemoveItem } = useContext(ShopContextCart);
+
+  const [isAdded, setIsAdded] = useState(false);
 
   return (
-    <Link to={`/productDetail/${id} `} style={{ textDecoration: "none" }} className="card">
+    <div className="card">
       <div className="product-info">
         <p>{title}</p>
         <p>{category}</p>
         <p className="rate">
-          <AiFillStar style={{color: "var(--primary-color)", fontSize: '20px'}}/>
-          <AiFillStar style={{color: "var(--primary-color)", fontSize: '20px'}}/>
-          <AiFillStar style={{color: "var(--primary-color)", fontSize: '20px'}}/>
-        {product.rating.rate}
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+          {product.rating.rate}
         </p>
         <p>$ {price}</p>
       </div>
-      <div className="card-img">
+      <Link to={`/productDetail/${id} `} className="card-img">
         <img src={image} alt="" />
-      </div>
-    </Link>
+      </Link>
+      {cart.find((item) => item.id === id) ? (
+        <button className="addToCartBtn" onClick={() => handleRemoveItem(id)}>
+          Remove from cart
+        </button>
+      ) : (
+        <button className="addToCartBtn" onClick={() => addToCart(product)}>
+          Add to cart
+        </button>
+      )}
+    </div>
   );
 }
 

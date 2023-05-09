@@ -1,10 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ShopContextCart } from './../../context/ShopContext';
 
-function Header({ setProducts }) {
+
+
+function Header() {
   const [categories, setCategories] = useState([]);
+  const [option, setOption] = useState("");
+  
+  const {products, setProducts, cart} = useContext(ShopContextCart)
+  
 
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/categories`).then((res) => {
@@ -12,19 +19,24 @@ function Header({ setProducts }) {
     });
   }, []);
 
-  const handleClick = (categories) => {
-    axios
-      .get(`https://fakestoreapi.com/products/category/${categories}`)
-      .then((res) => {
-        setProducts(res.data);
-      });
-  };
 
   const handleClickAll = () => {
     axios.get(`https://fakestoreapi.com/products`).then((res) => {
       setProducts(res.data);
     });
   };
+
+
+  const handleOptionClick = (e) => {
+    setOption(e.target.value);
+    axios
+      .get(`https://fakestoreapi.com/products/category/${e.target.value}`)
+      .then((res) => {
+        console.log(res.data)
+        setProducts(res.data);
+      });
+  };
+
 
   return (
     <div className="header">
@@ -33,7 +45,7 @@ function Header({ setProducts }) {
           <span className="material-symbols-outlined header-logo-img">
             storefront
           </span>
-          <h2 className="header-logo-title">LanZa's Shop</h2>
+          <h2 className="header-logo-title" onClick={handleClickAll}>LanZa's Shop</h2>
         </div>
       </Link>
 
@@ -46,17 +58,14 @@ function Header({ setProducts }) {
 
       <div className="header-nav">
         <div className="nav-item">
-
           <label>Categories</label>
-          <select>
-            <option >All</option>
+          <select onChange={handleOptionClick}>
             {categories.map((item) => (
-              <option 
-              key={item} 
-              value={item} 
-              onChange={()=> handleClick(item)}>{item}</option>
-              ))}
-              </select>
+              <option key={item} >
+                {item}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="nav-item">
@@ -67,6 +76,7 @@ function Header({ setProducts }) {
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <div className="nav-itemBasket">
             <span className="material-symbols-outlined">shopping_bag</span>
+            <span>{cart.length}</span>
           </div>
         </Link>
       </div>

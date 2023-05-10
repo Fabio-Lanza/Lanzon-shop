@@ -6,7 +6,7 @@ export const ShopContextCart = createContext();
 export default function ShopContextProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  
+  const [amount, setAmount] = useState(1);
 
   const addToCart = (item) => {
     setCart([...cart, item]);
@@ -17,24 +17,16 @@ export default function ShopContextProvider({ children }) {
     setCart(removeItem);
   };
 
-  // const handleChange = (item, num) => {
-  //   let initial = -1;
-  //   cart.forEach((data, index) => {
-  //     if (data.id === item.id) {
-  //       initial = index;
-  //     }
-  //   });
-  //   const tempArray = cart;
-  //   amount += num;
-  //   if(tempArray[initial] === 0){
-  //     tempArray[initial] = 1
-  //   }
-  //   setCart([...tempArray])
-  // };
-
-
-
-
+  const handleChange = (item, num) => {
+    const index = cart.findIndex((data) => data.id === item.id);
+    const newAmount = amount + num;
+    if (newAmount > 0) {
+      const newCart = [...cart];
+      newCart[index].quantity = newAmount;
+      setCart(newCart);
+      setAmount(newAmount);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -52,7 +44,9 @@ export default function ShopContextProvider({ children }) {
     setCart,
     addToCart,
     handleRemoveItem,
-    
+    handleChange,
+    amount,
+    setAmount,
   };
 
   console.log(cart);

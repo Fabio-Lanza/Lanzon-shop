@@ -46,10 +46,30 @@ margin-bottom: 20px;
 }
 
 /* ---- button (- +) */
-.cart-box div:nth-child(2) button{
-    padding: 5px 10px;
+.add-btn button:nth-child(1){
+    padding: 10px 15px;
     font-weight: 700;
-    margin-left: 5px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.add-btn button:nth-child(2){
+    padding: 10px 10px;
+    font-weight: 700;
+    border: none;
+    font-size: 15px;
+    
+}
+.add-btn button:nth-child(3){
+    padding: 10px 15px;
+    font-weight: 700;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 /* ---- remove */

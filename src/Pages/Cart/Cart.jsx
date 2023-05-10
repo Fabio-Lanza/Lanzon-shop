@@ -6,9 +6,8 @@ import { ShopContextCart } from "./../../context/ShopContext";
 import { FaTrash } from "react-icons/fa";
 
 function Cart() {
-  const { cart, handleRemoveItem, setCart } = useContext(ShopContextCart);
+  const { cart, handleRemoveItem, handleChange, amount } = useContext(ShopContextCart);
   const [price, setPrice] = useState(0);
-  let amount = 1;
 
   const handlePrice = () => {
     let initial = 0;
@@ -18,24 +17,11 @@ function Cart() {
     setPrice(initial);
   };
 
+
   useEffect(() => {
     handlePrice();
-  });
+  },[cart, amount]);
 
-  // const handleChange = (item, num) => {
-  //   let initial = -1;
-  //   cart.forEach((data, index) => {
-  //     if (data.id === item.id) {
-  //       initial = index;
-  //     }
-  //   });
-  //   const tempArray = amount;
-  //   amount = amount += num;
-  //   if (amount === 0) {
-  //     amount = 1;
-  //   }
-  //   setCart([...tempArray]);
-  // };
 
   return (
     <>
@@ -52,10 +38,10 @@ function Cart() {
                 <img src={item.image} alt="" />
                 <p>{item.title}</p>
               </div>
-              <div>
-                <button onClick={() => handleChange(item, +1)}>+</button>
-                <button>{amount}</button>
+              <div className="add-btn">
                 <button onClick={() => handleChange(item, -1)}>-</button>
+                <button>{item.quantity}</button>
+                <button onClick={() => handleChange(item, 1)}>+</button>
               </div>
               <div>
                 <span>${item.price}</span>
@@ -77,8 +63,7 @@ function Cart() {
             </div>
           </div>
         )}
-
-
+        
       </section>
     </>
   );

@@ -60,3 +60,63 @@
   background-color: var(--hover-color);
   cursor: pointer;
 }
+
+
+
+/* Media query ----- */
+@media screen and (max-width: 430px) {
+  .product-box {
+    width: 400px;
+    height: 883px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-box img {
+    width: 150px;
+    height: 180px;
+    margin-top: -40px 
+  }
+
+  .product-details {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .product-details .rate {
+    margin: 20px auto;
+  }
+
+  .product-details h2 {
+    font-size: 22px;
+  }
+
+  .product-details h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+
+  .product-details span {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .product-details p {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .product-details button {
+    font-size: 14px;
+    width: 168px;
+    margin: 30px auto;
+  }
+}

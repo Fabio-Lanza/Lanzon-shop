@@ -60,7 +60,7 @@
   }
 
   .addToCartBtn {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
   font-size: 14px;
   color: var(--text-darkColor);
   font-weight: 700;
@@ -76,3 +76,56 @@
     cursor: pointer;
   }
   
+
+
+  @media screen and (max-width: 430px){
+
+    .card {
+      padding: 10px;
+      width: 200px;
+      min-height: 250px;
+      max-height: 400px;
+      min-width: 50px;
+    }
+  
+    .card p:nth-child(1){
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+  
+    .card p:nth-child(2){
+      font-weight: 500;
+      color: #b69e9e;
+      margin-bottom: 5px;
+    }
+
+    .card p:nth-child(3){
+      font-size: 14px;
+      
+    }
+  
+    .card p:nth-child(4) {
+      color: #111;
+      font-weight: 800;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    
+    .card-img img {
+      max-height: 110px;
+      width: 100%;
+      object-fit: contain;
+    
+    }
+    
+    .product-info{
+      height: 220px;
+      width: 100%;
+    }
+
+    .addToCartBtn {
+    font-size: 12px;
+    width: 158px;
+  }
+}

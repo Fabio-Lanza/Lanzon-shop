@@ -117,3 +117,22 @@
     margin-right: 10px;
 }
 
+
+@media screen and (max-width: 430px){
+    .header {
+        height: 70px; 
+    }
+
+    .header-logo {
+        margin: 0 10px;
+    }
+    
+    .header-logo-title {
+      font-size: 15px;
+    }
+    
+    .header-search {
+        display: none;
+    }  
+
+}

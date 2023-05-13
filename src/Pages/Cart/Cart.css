@@ -125,6 +125,17 @@ section {
 }
 
 /* ----- Modal */
+
+.customStyles{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--primary-color);
+  background: #fafafa;
+}
+
 .modal-box {
   width: 692px;
   height: 436px;
@@ -169,8 +180,6 @@ section {
   cursor: pointer;
   margin-top: 30px;
 }
-
-
 
 /* media query ----- */
 @media screen and (max-width: 430px) {
@@ -272,5 +281,40 @@ section {
 
   .checkout-btn {
     width: 158px;
+  }
+
+
+  /* MODAL--- */
+  .customStyles{
+    left: 41%;
+  }
+
+  .modal-box {
+    width: 392px;
+    height: 436px;
+  }
+
+  .modal-box .modal-content {
+    margin: 10px 29px;
+  }
+
+  .modal-box .modal-content p span{
+    font-weight: 800;
+  }
+  .modal-box .modal-content svg {
+    font-size: 40px;
+  }
+
+  .modal-box .modal-content p:nth-child(2) {
+    font-size: 22px;
+  }
+
+  .modal-box .modal-content p:nth-child(3) {
+    font-size: 18px;
+  }
+  .modal-box button {
+    font-size: 12px;
+    width: 168px;
+    padding: 13px;
   }
 }

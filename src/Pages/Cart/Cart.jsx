@@ -28,18 +28,6 @@ function Cart() {
   },[cart, amount]);
 
 
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      border: "1px solid var(--primary-color)",
-    },
-  };
-
   return (
     <>
       <section>
@@ -81,8 +69,9 @@ function Cart() {
           </div>
         )}
         
+      
 
-        <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="modal">
+        <Modal isOpen={modalIsOpen} contentLabel="modal" className="customStyles">
         <div className="modal-box">
           <AiOutlineClose onClick={() => setModalIsOpen(false)} />
           <div className="modal-content">
@@ -90,7 +79,7 @@ function Cart() {
             <p>Your order was successful!</p>
             <p>
               Check your email for the order confirmation. Thank you for
-              shopping with Fake Store!
+              shopping with <span>LanZa's Shop</span> !
             </p>
           </div>
           <Link to="/">

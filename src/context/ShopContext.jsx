@@ -9,7 +9,9 @@ export default function ShopContextProvider({ children }) {
   const [amount, setAmount] = useState(1);
 
   const addToCart = (item) => {
-    setCart([...cart, {...item, quantity:1}]);
+    const newFavorites = [...cart, {...item, quantity:1}]
+    setCart(newFavorites)
+    localStorage.setItem('favoritesList', JSON.stringify(newFavorites))
   };
 
   const handleRemoveItem = (id) => {
@@ -27,6 +29,14 @@ export default function ShopContextProvider({ children }) {
       setAmount(newAmount);
     }
   };
+
+  useEffect(()=> {
+  const getFav = localStorage.getItem('favoritesList')
+  if(getFav){
+    setCart(JSON.parse(getFav))
+  }
+  }, [])
+
 
   useEffect(() => {
     axios

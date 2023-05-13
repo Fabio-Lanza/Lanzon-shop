@@ -9,7 +9,7 @@ export default function ShopContextProvider({ children }) {
   const [amount, setAmount] = useState(1);
 
   const addToCart = (item) => {
-    setCart([...cart, item]);
+    setCart([...cart, {...item, quantity:1}]);
   };
 
   const handleRemoveItem = (id) => {

@@ -7,9 +7,6 @@ import { ShopContextCart } from "./../../context/ShopContext";
 function ProductCart({ product }) {
   const { id, title, category, price, image } = product;
   const { addToCart, cart, handleRemoveItem } = useContext(ShopContextCart);
-  const [isAdded, setIsAdded] = useState(false);
-
-  const cartItemamount = cart[id]
 
   return (
     <div className="card">

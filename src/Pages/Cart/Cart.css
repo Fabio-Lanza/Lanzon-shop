@@ -126,3 +126,51 @@ margin-bottom: 20px;
 .total-hide{
     display: none;
 }
+
+/* ----- Modal */
+.modal-box {
+    width: 692px;
+    height: 436px;
+    text-align: center;
+    
+  }
+  
+  .modal-box .modal-content {
+    margin: 20px 59px;
+  }
+
+  .modal-box .modal-content svg {
+    color: var(--primary-color);
+    font-size: 50px;
+    margin: 10px auto;
+  }
+
+  .modal-box .modal-content p:nth-child(2) {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .modal-box .modal-content p:nth-child(3) {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .modal-box svg {
+    font-size: 25px;
+    margin-left: 600px;
+    cursor: pointer;
+  }
+  
+  .modal-box button {
+    background-color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    width: 178px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+  

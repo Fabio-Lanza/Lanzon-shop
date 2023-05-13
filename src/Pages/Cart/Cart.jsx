@@ -4,10 +4,16 @@ import amazonBanner from "../../assets/img/amazonBanner2.jpg";
 import { useContext, useState, useEffect } from "react";
 import { ShopContextCart } from "./../../context/ShopContext";
 import { FaTrash } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import {BsFillCheckCircleFill} from 'react-icons/bs'
+import Modal from 'react-modal'
+import { Link } from 'react-router-dom'
+
 
 function Cart() {
   const { cart, handleRemoveItem, handleChange, amount } = useContext(ShopContextCart);
   const [price, setPrice] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handlePrice = () => {
     let initial = 0;
@@ -17,11 +23,22 @@ function Cart() {
     setPrice(initial);
   };
 
-
   useEffect(() => {
     handlePrice();
   },[cart, amount]);
 
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      border: "1px solid var(--primary-color)",
+    },
+  };
 
   return (
     <>
@@ -59,11 +76,29 @@ function Cart() {
             <span>Total Price</span>
             <span>${price}</span>
             <div>
-              <button className="checkout-btn">Checkout</button>
+              <button onClick={() => setModalIsOpen(true)} className="checkout-btn">Checkout</button>
             </div>
           </div>
         )}
         
+
+        <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="modal">
+        <div className="modal-box">
+          <AiOutlineClose onClick={() => setModalIsOpen(false)} />
+          <div className="modal-content">
+            <BsFillCheckCircleFill/>
+            <p>Your order was successful!</p>
+            <p>
+              Check your email for the order confirmation. Thank you for
+              shopping with Fake Store!
+            </p>
+          </div>
+          <Link to="/">
+            <button>Return to MainPage</button>
+          </Link>
+        </div>
+      </Modal>
+
       </section>
     </>
   );

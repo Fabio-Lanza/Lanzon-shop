@@ -141,6 +141,10 @@
    margin-bottom: 2px;
   }
 
+  .nav-itemBasket span:nth-child(2) {
+    right: 29px;
+  }
+
   .header-logo-img {
     margin-right: 5px;
   }

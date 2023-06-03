@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 20px;
-    width: 520px;
+    width: 380px;
     min-height: 450px;
     max-height: 400px;
     min-width: 200px;
@@ -76,10 +76,38 @@
     cursor: pointer;
   }
   
+  /* media query Laptop----- */
+@media screen and (max-width: 1300px){
+  .card {
+   width: 99%;
+  }
+
+  .card p:nth-child(1){
+    font-size: 16px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+
+  .card p:nth-child(3){
+    font-size: 14px;
+    gap: 2px;
+  }
+
+  .card p:nth-child(4) {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .card-img img {
+    max-height: 170px;
+  }
+  
+}
 
 
   @media screen and (max-width: 430px){
-
     .card {
       padding: 10px;
       width: 200px;

@@ -12,10 +12,22 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 56px;
+  gap: 40px;
   justify-content: space-between;
-  padding: 10px 100px;
+  padding: 10px 120px;
 }
+
+
+/* media query Laptop----- */
+@media screen and (max-width: 1300px){
+  .products-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+    gap: 10px;
+  }
+} 
+
 
 
 /* media query ----- */

@@ -181,6 +181,20 @@ section {
   margin-top: 30px;
 }
 
+
+  /* media query Laptop----- */
+  @media screen and (max-width: 1300px){
+/* ---- button (- +) */
+.add-btn{
+display: flex;
+margin: 10px;
+}
+
+  }
+
+
+
+
 /* media query ----- */
 @media screen and (max-width: 430px) {
   section {

@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import "./Home.css";
-import Banner from "../../assets/img/banner.jpg";
+import Banner from "../../assets/img/banner3.png";
 import ProductCart from "../../components/ProductCart/ProductCart";
 import { ShopContextCart } from "../../context/ShopContext";
 
